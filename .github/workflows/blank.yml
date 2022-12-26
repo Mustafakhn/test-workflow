@@ -37,11 +37,12 @@ jobs:
     
     steps:
     - name: health-check-with-wget
-      uses: Mustafakhn/health-check-action@main
-      with:
-          website_url: https://full-cicd.uc.r.appspot.com/
-          version_name: version
-          method: wget
+#       uses: Mustafakhn/health-check-action@main
+#       with:
+#           website_url: https://full-cicd.uc.r.appspot.com/
+#           version_name: version
+#           method: wget
+      run: wget https://full-cicd.uc.r.appspot.com/
           
   notification-success:
     runs-on: ubuntu-latest
