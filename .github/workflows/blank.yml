@@ -22,13 +22,13 @@ jobs:
       run: wget https://abc-full-cicd.uc.r.appspot.com/
       continue-on-error: true
           
-#   notification:
-#     runs-on: ubuntu-latest
-#     needs: [ test-after-deploying-to-default-with-curl ]
-#     if: success()
-#     steps:
-#     - name: success-message
-#       run: echo "success"
+  notification:
+    runs-on: ubuntu-latest
+    needs: [ test-after-deploying-to-default-with-curl ]
+    if: failure()
+    steps:
+    - name: failure-message
+      run: echo "failure"
 
   test-after-deploying-to-default-with-wget: 
   
