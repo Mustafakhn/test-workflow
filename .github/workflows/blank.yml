@@ -33,7 +33,7 @@ jobs:
     
     runs-on: ubuntu-latest
     needs: [ test-after-deploying-to-default-with-curl ]
-    if: (needs.test-after-deploying-to-default-with-curl.result == 'failure')
+    if: failure()
     
     steps:
     - name: health-check-with-wget
