@@ -32,7 +32,7 @@ jobs:
 
       
     - name: health-check-with-wget
-      if: (steps.health-check-with-wget.results == "failure")
+      if: (steps.health-check-with-wget.results == 'failure')
 #       uses: Mustafakhn/health-check-action@main
 #       with:
 #           website_url: https://full-cicd.uc.r.appspot.com/
