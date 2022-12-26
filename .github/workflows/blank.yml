@@ -55,7 +55,7 @@ jobs:
   notification-failure:
     runs-on: ubuntu-latest
     needs: [ test-after-deploying-to-default-with-wget ]
-    if: faliure()
+    if: failure()
     
     steps:
     - name: failure-message
