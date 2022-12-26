@@ -42,6 +42,14 @@ jobs:
           version_name: version
           method: wget
           
+  notification-success:
+    runs-on: ubuntu-latest
+    needs: [ test-after-deploying-to-default-with-wget ]
+    if: success()
+    steps:
+    - name: success-message
+      run: echo "success"
+  
   notification-failure:
     runs-on: ubuntu-latest
     needs: [ test-after-deploying-to-default-with-wget ]
@@ -51,11 +59,3 @@ jobs:
       - name: failure-message
         run: echo "failure"
           
-    
-  notification-success:
-    runs-on: ubuntu-latest
-    needs: [ test-after-deploying-to-default-with-wget ]
-    if: success()
-    steps:
-    - name: success-message
-      run: echo "success"
