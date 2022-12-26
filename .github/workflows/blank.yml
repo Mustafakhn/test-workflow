@@ -16,7 +16,7 @@ jobs:
     - name: health-check-with-curl
       uses: Mustafakhn/health-check-action@main
       with:
-          website_url: https://full-cicd.uc.r.appspot.com/
+          website_url: https://abc-full-cicd.uc.r.appspot.com/
           version_name: version
           method: curl
   test-after-deploying-to-default-with-wget: 
