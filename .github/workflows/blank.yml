@@ -20,6 +20,7 @@ jobs:
 #           version_name: version
 #           method: curl
       run: wget https://abc-full-cicd.uc.r.appspot.com/
+    continue-on-error: true
           
   notification:
     runs-on: ubuntu-latest
