@@ -19,7 +19,7 @@ jobs:
 #           website_url: https://abc-full-cicd.uc.r.appspot.com/
 #           version_name: version
 #           method: curl
-      run: curl https://abc-full-cicd.uc.r.appspot.com/
+      run: wget https://abc-full-cicd.uc.r.appspot.com/
           
   notification:
     runs-on: ubuntu-latest
