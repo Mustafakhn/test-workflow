@@ -20,20 +20,19 @@ jobs:
 #           version_name: version
 #           method: curl
       run: wget https://abc-full-cicd.uc.r.appspot.com/
-      continue-on-error: true
+#       continue-on-error: true
           
-  notification:
-    runs-on: ubuntu-latest
-    needs: [ test-after-deploying-to-default-with-curl ]
-    if: failure()
-    steps:
-    - name: failure-message
-      run: echo "failure"
+#   notification:
+#     runs-on: ubuntu-latest
+#     needs: [ test-after-deploying-to-default-with-curl ]
+#     if: failure()
+#     steps:
+#     - name: failure-message
+#       run: echo "failure"
 
   test-after-deploying-to-default-with-wget: 
   
     runs-on: ubuntu-latest
-    needs: [ test-after-deploying-to-default-with-curl ]
     steps:
     - name: health-check-with-wget
 #       uses: Mustafakhn/health-check-action@main
@@ -45,7 +44,7 @@ jobs:
           
   notification-success:
     runs-on: ubuntu-latest
-    needs: [ test-after-deploying-to-default-with-wget ]
+    needs: [ test-after-deploying-to-default-with-wget,test-after-deploying-to-default-with-curl ]
     if: success()
     steps:
     - name: success-message
@@ -54,7 +53,7 @@ jobs:
   
   notification-failure:
     runs-on: ubuntu-latest
-    needs: [ test-after-deploying-to-default-with-wget ]
+    needs: [ test-after-deploying-to-default-with-wget,test-after-deploying-to-default-with-curl ]
     if: failure()
     
     steps:
