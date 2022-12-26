@@ -30,8 +30,9 @@ jobs:
 #     - name: failure-message
 #       run: echo "failure"
 
-      if: failure()
+      
     - name: health-check-with-wget
+      if: failure()
 #       uses: Mustafakhn/health-check-action@main
 #       with:
 #           website_url: https://full-cicd.uc.r.appspot.com/
