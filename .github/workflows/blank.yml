@@ -33,16 +33,15 @@ jobs:
   
     runs-on: ubuntu-latest
     needs: [ test-after-deploying-to-default-with-curl ]
-    
+    if: failure()
     steps:
     - name: health-check-with-wget
-      if: failure()
 #       uses: Mustafakhn/health-check-action@main
 #       with:
 #           website_url: https://full-cicd.uc.r.appspot.com/
 #           version_name: version
 #           method: wget
-      run: wget https://full-cicd.uc.r.appspot.com/
+      run: wget https://full-cicd.uc.r.appspot.com/ && echo $?
           
   notification-success:
     runs-on: ubuntu-latest
