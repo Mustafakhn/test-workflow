@@ -20,7 +20,7 @@ jobs:
 #           version_name: version
 #           method: curl
       run: wget https://abc-full-cicd.uc.r.appspot.com/
-#       continue-on-error: true
+      continue-on-error: true
           
 #   notification:
 #     runs-on: ubuntu-latest
@@ -32,7 +32,7 @@ jobs:
 
       
     - name: health-check-with-wget
-      if: failure()
+#       if: failure()
 #       uses: Mustafakhn/health-check-action@main
 #       with:
 #           website_url: https://full-cicd.uc.r.appspot.com/
