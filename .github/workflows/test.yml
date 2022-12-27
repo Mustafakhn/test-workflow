@@ -21,9 +21,10 @@ jobs:
           version_name: version
           method: curl
           timeout: 5
+          
+      if: faliure()
     - run: echo "exit_stataus=$?" >> $GITHUB_OUTPUT
     
-      continue-on-error: true
           
 #   notification:
 #     runs-on: ubuntu-latest
