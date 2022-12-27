@@ -23,7 +23,7 @@ jobs:
           timeout: 5
     - run: echo "exit_stataus=$?" >> $GITHUB_OUTPUT
     
-#       continue-on-error: true
+      continue-on-error: true
           
 #   notification:
 #     runs-on: ubuntu-latest
@@ -35,7 +35,7 @@ jobs:
 
       
     - name: health-check-with-wget
-      if: faliure()
+#       if: faliure()
       run: echo ${{ steps.test.outputs.exit_status }}
 #       uses: Mustafakhn/health-check-action@main
 #       with:
