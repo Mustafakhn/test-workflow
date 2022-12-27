@@ -15,6 +15,7 @@ jobs:
       test-result: ${{ steps.test.outputs.test }}
     steps:
     - name: health-check-with-curl
+      id: test
       uses: Mustafakhn/health-check-action@v2
       with:
           website_url: https://full-cicd.uc.r.appspot.com/
@@ -33,9 +34,8 @@ jobs:
 #     - name: failure-message
 #       run: echo "failure"
 
-    - if: failure()
-      name: health-check-with-wget
-      id: test
+    - name: health-check-with-wget
+      if: contains(steps.id.conclusion, 'failure')
 #       run: echo ${{ steps.test.outputs.exit_status }}
 #       uses: Mustafakhn/health-check-action@main
 #       with:
