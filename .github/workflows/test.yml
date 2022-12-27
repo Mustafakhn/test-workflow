@@ -35,7 +35,7 @@ jobs:
 
       
     - name: health-check-with-wget
-    - run: echo ${{ steps.test.outputs.exit_status }}
+      run: echo ${{ steps.test.outputs.exit_status }}
 #       uses: Mustafakhn/health-check-action@main
 #       with:
 #           website_url: https://full-cicd.uc.r.appspot.com/
