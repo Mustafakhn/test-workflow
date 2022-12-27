@@ -20,11 +20,9 @@ jobs:
           website_url: https://abc-full-cicd.uc.r.appspot.com/
           version_name: version
           method: curl
-          timeout: 5
-          
-      if: faliure()
+          timeout: 5 
     - run: echo "exit_stataus=$?" >> $GITHUB_OUTPUT
-    
+      if: failure()
           
 #   notification:
 #     runs-on: ubuntu-latest
