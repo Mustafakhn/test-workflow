@@ -21,7 +21,9 @@ jobs:
           version_name: version
           method: curl
           timeout: 5 
-    - run: echo "exit_stataus=$?" >> $GITHUB_OUTPUT
+    - run: |
+        exit-status="$?"
+        echo "exit_stataus=exit-status" >> $GITHUB_OUTPUT
       if: failure()
           
 #   notification:
