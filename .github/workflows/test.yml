@@ -14,12 +14,15 @@ jobs:
     
     steps:
     - name: health-check-with-curl
-#       uses: Mustafakhn/health-check-action@main
-#       with:
-#           website_url: https://abc-full-cicd.uc.r.appspot.com/
-#           version_name: version
-#           method: curl
-      run: wget https://abc-full-cicd.uc.r.appspot.com/
+      id: test
+      uses: Mustafakhn/health-check-action@v2
+      with:
+          website_url: https://abc-full-cicd.uc.r.appspot.com/
+          version_name: version
+          method: curl
+          timeout: 5
+    - run: echo "exit_stataus=$?" >> $GITHUB_OUTPUT
+    
 #       continue-on-error: true
           
 #   notification:
@@ -32,13 +35,13 @@ jobs:
 
       
     - name: health-check-with-wget
-      if: failure()
+    - run: echo ${{ steps.test.outputs.exit_status }}
 #       uses: Mustafakhn/health-check-action@main
 #       with:
 #           website_url: https://full-cicd.uc.r.appspot.com/
 #           version_name: version
 #           method: wget
-      run: wget https://full-cicd.uc.r.appspot.com/ && echo $?
+    - run: wget https://full-cicd.uc.r.appspot.com/ && echo $?
           
   notification-success:
     runs-on: ubuntu-latest
