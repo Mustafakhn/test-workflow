@@ -34,7 +34,7 @@ jobs:
 #     - name: failure-message
 #       run: echo "failure"
 
-    - if: ${{ outputs.test-result }}
+    - if: failure()
       name: health-check-with-wget
 #       run: echo ${{ steps.test.outputs.exit_status }}
 #       uses: Mustafakhn/health-check-action@main
@@ -42,8 +42,9 @@ jobs:
 #           website_url: https://full-cicd.uc.r.appspot.com/
 #           version_name: version
 #           method: wget
-      run: wget https://full-cicd.uc.r.appspot.com/ && echo $?
-          
+      run: |
+        wget https://full-cicd.uc.r.appspot.com/ && echo $?
+        echo ${{ outputs.test-result }}  
   notification-success:
     runs-on: ubuntu-latest
     needs: [ test-after-deploying-to-default-with-curl ]
