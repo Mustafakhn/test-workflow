@@ -21,7 +21,6 @@ jobs:
           version_name: version
           method: curl
           timeout: 5 
-      run: echo "exit_stataus=$?" >> $GITHUB_OUTPUT
 #     - run: |
 #         echo "exit_stataus=$exit-status" >> $GITHUB_OUTPUT
 #       if: failure()
@@ -36,7 +35,7 @@ jobs:
 
       
     - name: health-check-with-wget
-      if: failure()
+    - if: failure()
       run: echo ${{ steps.test.outputs.exit_status }}
 #       uses: Mustafakhn/health-check-action@main
 #       with:
