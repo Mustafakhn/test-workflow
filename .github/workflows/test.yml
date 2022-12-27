@@ -34,7 +34,7 @@ jobs:
 #       run: echo "failure"
 
     - if: failure()      
-    - name: health-check-with-wget
+      name: health-check-with-wget
       run: echo ${{ steps.test.outputs.exit_status }}
 #       uses: Mustafakhn/health-check-action@main
 #       with:
