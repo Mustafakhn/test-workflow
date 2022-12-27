@@ -11,7 +11,8 @@ jobs:
   test-after-deploying-to-default-with-curl:
     
     runs-on: ubuntu-latest
-    
+    outputs:
+      test-result: ${{ steps.test.outputs.test }}
     steps:
     - name: health-check-with-curl
       id: test
@@ -33,7 +34,7 @@ jobs:
 #     - name: failure-message
 #       run: echo "failure"
 
-    - if: failure()      
+    - if: ${{ outputs.test-result }}
       name: health-check-with-wget
 #       run: echo ${{ steps.test.outputs.exit_status }}
 #       uses: Mustafakhn/health-check-action@main
