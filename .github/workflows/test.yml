@@ -23,8 +23,8 @@ jobs:
           timeout: 5 
     - run: |
         exit-status="$?"
-        echo "exit_stataus=exit-status" >> $GITHUB_OUTPUT
-      if: failure()
+        echo "exit_stataus=$exit-status" >> $GITHUB_OUTPUT
+    if: failure()
           
 #   notification:
 #     runs-on: ubuntu-latest
