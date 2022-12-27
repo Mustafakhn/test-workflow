@@ -34,7 +34,7 @@ jobs:
 
       
     - name: health-check-with-wget
-#       if: faliure()
+      if: failure()
       run: echo ${{ steps.test.outputs.exit_status }}
 #       uses: Mustafakhn/health-check-action@main
 #       with:
