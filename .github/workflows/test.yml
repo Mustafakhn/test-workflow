@@ -43,7 +43,6 @@ jobs:
 #           version_name: version
 #           method: wget
       run: |
-        wget https://full-cicd.uc.r.appspot.com/ && echo $?
         echo ${{ steps.test.outputs.test-result }}  
   notification-success:
     runs-on: ubuntu-latest
