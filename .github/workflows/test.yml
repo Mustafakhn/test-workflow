@@ -21,7 +21,7 @@ jobs:
           website_url: https://full-cicd.uc.r.appspot.com/
           version_name: version
           method: wget
-          timeout: 10
+          timeout: 15
 #     - run: |
 #         echo "exit_stataus=$exit-status" >> $GITHUB_OUTPUT
 #       if: failure()
