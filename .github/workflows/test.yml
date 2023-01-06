@@ -22,6 +22,21 @@ jobs:
           version_name: version
           method: wget
           timeout: 15
+          
+  test-after-deploying:
+    
+    runs-on: self-hosted
+    outputs:
+      test-result: ${{ steps.test.outputs.test }}
+    steps:
+    - name: health-check-with-curl
+      id: test
+      uses: Mustafakhn/health-check-action@v2
+      with:
+          website_url: https://full-cicd.uc.r.appspot.com/
+          version_name: version
+          method: wget
+          timeout: 15
 #     - run: |
 #         echo "exit_stataus=$exit-status" >> $GITHUB_OUTPUT
 #       if: failure()
