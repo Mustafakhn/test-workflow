@@ -10,7 +10,7 @@ on:
 jobs:
   test-after-deploying-to-default-with-curl:
     
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     outputs:
       test-result: ${{ steps.test.outputs.test }}
     steps:
