@@ -36,3 +36,4 @@ jobs:
           gh pr list --repo Mustafakhn/test-workflow
           gh pr list --repo Mustafakhn/test-workflow | cut -d ' ' -f 1
           gh pr view --repo Mustafakhn/test-workflow 1 | grep -P "title"
+          gh pr view --repo Mustafakhn/test-workflow 1 --json title | grep -P "title" | cut -d ' ' -f 1 | sed 's/{"title":"//'
