@@ -35,7 +35,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo ${GITHUB_REF#refs/pull/}
-          gh pr list --repo ${{ env.REPO }}
-          gh pr list --repo ${{ env.REPO }} | cut -d ' ' -f 1
-          gh pr view --repo ${{ env.REPO }} ${{ env.PR_NUM }} | grep -P "title"
           gh pr view --repo ${{ env.REPO }} ${{ env.PR_NUM }} --json title | grep -P "title" | cut -d ' ' -f 1 | sed 's/{"title":"//'
+          echo ${{ github.event.number }}
