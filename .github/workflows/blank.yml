@@ -11,6 +11,8 @@ on:
     branches: [ "main" ]
 env:
   GH_TOKEN: ${{ github.token }}
+  REPO: Mustafakhn/test-workflow
+  PR_NUM: 1
   # Allows you to run this workflow manually from the Actions tab
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -33,7 +35,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo ${GITHUB_REF#refs/pull/}
-          gh pr list --repo Mustafakhn/test-workflow
-          gh pr list --repo Mustafakhn/test-workflow | cut -d ' ' -f 1
-          gh pr view --repo Mustafakhn/test-workflow 1 | grep -P "title"
-          gh pr view --repo Mustafakhn/test-workflow 1 --json title | grep -P "title" | cut -d ' ' -f 1 | sed 's/{"title":"//'
+          gh pr list --repo ${{ env.REPO }}
+          gh pr list --repo ${{ env.REPO }} | cut -d ' ' -f 1
+          gh pr view --repo ${{ env.REPO }} ${{ env.PR_NUM }} | grep -P "title"
+          gh pr view --repo ${{ env.REPO }} ${{ env.PR_NUM }} --json title | grep -P "title" | cut -d ' ' -f 1 | sed 's/{"title":"//'
