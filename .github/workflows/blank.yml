@@ -35,4 +35,4 @@ jobs:
           echo ${GITHUB_REF#refs/pull/}
           gh pr list --repo Mustafakhn/test-workflow
           gh pr list --repo Mustafakhn/test-workflow | cut -d ' ' -f 1
-          gh pr view --repo Adaptavant/cicd-js-test 10 | head -n -1
+          gh pr view --repo Mustafakhn/test-workflow 10 | head -n -1
