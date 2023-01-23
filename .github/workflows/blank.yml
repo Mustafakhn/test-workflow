@@ -33,3 +33,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo ${GITHUB_REF#refs/pull/}
+          gh pr list --repo Mustafakhn/test-workflow
+          gh pr list --repo Mustafakhn/test-workflow | cut -d ' ' -f 1
