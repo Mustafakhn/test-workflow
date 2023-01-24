@@ -38,5 +38,5 @@ jobs:
           echo ${{ github.event.number }}
           echo ${{ github.event.repository.name }}
           PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }') >> $GITHUB_ENV
-          
+          echo ${{ env.GITHUB_ENV }}
 #          gh pr view --repo ${{ env.REPO }} ${{ env.PR_NUMBER }} --json title | grep -P "title" | cut -d ' ' -f 1 | sed 's/{"title":"//'
