@@ -9,8 +9,8 @@ on:
     branches: [ "main", "test-branch" ]
   pull_request:
     branches: [ "main" ]
-# env:
-#   GH_TOKEN: ${{ github.token }}
+env:
+  GH_TOKEN: ${{ github.token }}
 #   REPO: Mustafakhn/test-workflow
 #   PR_NUM: 1
   # Allows you to run this workflow manually from the Actions tab
@@ -35,8 +35,8 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo ${GITHUB_REF#refs/pull/}
-          echo ${{ github.ref }}
           echo ${{ github.event.pull_request.number }}
+          echo ${{ github.ref }}
           echo ${{ github.repository }}
           PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }') >> $GITHUB_ENV
           echo ${{ env.GITHUB_ENV }}
