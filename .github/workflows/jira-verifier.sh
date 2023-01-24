@@ -44,7 +44,6 @@ else
             code=$(echo $split | cut -d ' ' -f $i)
             if [[ " ${alphabets[*]} " == *"$code"* ]];
             then
-                # echo "correct format"
                 continue
             else
                 errorOrHelpMessage
@@ -63,6 +62,7 @@ else
                 errorOrHelpMessage
             fi
         done
+        echo "verification successfull"
     else
         echo "the length is greater than 10 characters"
         exit 1
