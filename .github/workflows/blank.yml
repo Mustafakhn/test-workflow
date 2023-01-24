@@ -32,9 +32,8 @@ jobs:
         run: |
           echo ${{ github.ref }}
           echo ${{ github.repository }}
-          number=$gh pr view --json number | cut -d ':' -f 2 | sed -e 's/}//' >> $GITHUB_ENV
+          echo number=gh pr view --json number | cut -d ':' -f 2 | sed -e 's/}//' >> $GITHUB_ENV
           echo ${{ env.number }}
-          gh pr view | grep "number:" | sed 's/:/=/'
           chmod u+x .github/workflows/jira-verifier.sh
           .github/workflows/jira-verifier.sh $(gh pr view --json title | cut -d ' ' -f 1 | sed 's/{"title":"//')
 # test
