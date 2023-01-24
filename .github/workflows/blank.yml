@@ -9,10 +9,10 @@ on:
     branches: [ "main", "test-branch" ]
   pull_request:
     branches: [ "main" ]
-env:
-  GH_TOKEN: ${{ github.token }}
-  REPO: Mustafakhn/test-workflow
-  PR_NUM: 1
+# env:
+#   GH_TOKEN: ${{ github.token }}
+#   REPO: Mustafakhn/test-workflow
+#   PR_NUM: 1
   # Allows you to run this workflow manually from the Actions tab
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -36,5 +36,7 @@ jobs:
         run: |
           echo ${GITHUB_REF#refs/pull/}
           echo ${{ github.event.number }}
+          echo ${{ github.event.repository.name }}
           PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }') >> $GITHUB_ENV
-          gh pr view --repo ${{ env.REPO }} ${{ env.PR_NUMBER }} --json title | grep -P "title" | cut -d ' ' -f 1 | sed 's/{"title":"//'
+          
+#          gh pr view --repo ${{ env.REPO }} ${{ env.PR_NUMBER }} --json title | grep -P "title" | cut -d ' ' -f 1 | sed 's/{"title":"//'
