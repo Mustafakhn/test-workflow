@@ -37,3 +37,5 @@ jobs:
           echo ${GITHUB_REF#refs/pull/}
           gh pr view --repo ${{ env.REPO }} ${{ env.PR_NUM }} --json title | grep -P "title" | cut -d ' ' -f 1 | sed 's/{"title":"//'
           echo ${{ github.event.number }}
+          PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+          echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }'
