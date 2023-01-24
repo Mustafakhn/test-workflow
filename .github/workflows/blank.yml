@@ -35,6 +35,5 @@ jobs:
           ls -a
           pwd
           gh pr view | grep "number:" | sed 's/:/=/'
-          cd .github/workflows
-          chmod u+x jira-verifier.sh
-          ./jira-verifier.sh $(gh pr view --json title | cut -d ' ' -f 1 | sed 's/{"title":"//')
+          chmod u+x .github/workflows/jira-verifier.sh
+          .github/workflows/jira-verifier.sh $(gh pr view --json title | cut -d ' ' -f 1 | sed 's/{"title":"//')
