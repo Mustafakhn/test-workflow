@@ -35,7 +35,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo ${GITHUB_REF#refs/pull/}
-          echo ${{ github.event.number }}
+          echo ${{ github.event.pull_request.number }}
           echo ${{ github.event.repository.name }}
           PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }') >> $GITHUB_ENV
           echo ${{ env.GITHUB_ENV }}
