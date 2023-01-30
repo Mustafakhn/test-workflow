@@ -34,6 +34,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
+          cat $GITHUB_EVENT_PATH
           echo ${GITHUB_REF#refs/pull/}
           echo ${{ github.event.number }}
           PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
