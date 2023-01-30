@@ -38,3 +38,17 @@ jobs:
           echo ${{ env.number }}
           chmod u+x .github/workflows/jira-verifier.sh
           .github/workflows/jira-verifier.sh $(gh pr view --json title | cut -d ' ' -f 1 | sed 's/{"title":"//')
+          
+      - name: Check PR Title
+        run: |
+          if ! grep -q TEST-1234 "$GITHUB_EVENT_PATH"; then
+          echo "Jira ID not found in PR title."
+          exit 1
+          fi
+
+      - name: Check PR Body
+        run: |
+          if ! grep -q TEST-1234 "$GITHUB_EVENT_PATH"; then
+          echo "Jira ID not found in PR body."
+          exit 1
+          fi
