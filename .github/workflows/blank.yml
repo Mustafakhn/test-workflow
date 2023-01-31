@@ -27,18 +27,18 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - run: |
-          gh pr view --json number | cut -d ':' -f 2 | cut -d '}' -f 1 >> pr.txt
-          echo number=$(cat pr.txt) >> $GITHUB_ENV
+#       - run: |
+#           gh pr view --json number | cut -d ':' -f 2 | cut -d '}' -f 1 >> pr.txt
+#           echo number=$(cat pr.txt) >> $GITHUB_ENV
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo ${{ github.ref }}
-          echo ${{ github.repository }}
-          echo ${{ env.number }}
-          chmod u+x .github/workflows/jira-verifier.sh
-          .github/workflows/jira-verifier.sh $(gh pr view --json title | cut -d ' ' -f 1 | sed 's/{"title":"//')
+#       - name: Run a multi-line script
+#         run: |
+#           echo ${{ github.ref }}
+#           echo ${{ github.repository }}
+#           echo ${{ env.number }}
+#           chmod u+x .github/workflows/jira-verifier.sh
+#           .github/workflows/jira-verifier.sh $(gh pr view --json title | cut -d ' ' -f 1 | sed 's/{"title":"//')
           
       - name: Check PR Title
         run: |
