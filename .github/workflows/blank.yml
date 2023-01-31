@@ -41,6 +41,8 @@ jobs:
           
       - name: Check PR Title
         run: |
+          echo ${{ github.event.pull_request.title }}
+          echo ===============================================
           cat $GITHUB_EVENT_PATH
           if ! grep -q TEST-1234 "$GITHUB_EVENT_PATH"; then
           echo "Jira ID not found in PR title."
