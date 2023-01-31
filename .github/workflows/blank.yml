@@ -41,8 +41,8 @@ jobs:
           
       - name: Check PR Title
         run: |
+          echo "starting th pr test"
           echo ${{github.event.pull_request.title}}
-          echo ${github.event.pull_request.body}}
           echo ${{github.event.pull_request}}
           echo ===============================================
           cat $GITHUB_EVENT_PATH
