@@ -39,6 +39,7 @@ jobs:
           echo ${{ env.number }}
           chmod u+x .github/workflows/jira-verifier.sh
           .github/workflows/jira-verifier.sh $(gh pr view --json title | cut -d ' ' -f 1 | sed 's/{"title":"//')
+          echo "it is working"
           
       - name: Check PR Title
         run: |
