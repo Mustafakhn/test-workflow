@@ -9,38 +9,10 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-env:
-  GH_TOKEN: ${{ github.token }}
-  REPO: Mustafakhn/test-workflow
-  PR_NUM: 1
-  # Allows you to run this workflow manually from the Actions tab
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
-    if: ${{github.event_name == 'pull_request' || github.event_name == 'push'}}
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo ${{ github.event.pull_request.title }}
-          echo ${{ github.event.pull_request.body }}
-          echo ${{ github.event.pull_request }}
-          cat $GITHUB_EVENT_PATH
-          echo ${GITHUB_REF#refs/pull/}
-          echo ${{ github.event.number }}
-          PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-          gh pr view --repo ${{ env.REPO }} ${{ env.PR_NUM }} --json title | grep -P "title" | cut -d ' ' -f 1 | sed 's/{"title":"//'
-#test2
+    - uses: 'Mustafakhn/private-action@main'
