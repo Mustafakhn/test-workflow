@@ -19,3 +19,5 @@ jobs:
       with:
           ssh-key: ${{ secrets.SSH_KEY }}
           repository: Mustafakhn/private-action
+          
+    - run: ls -lrt
