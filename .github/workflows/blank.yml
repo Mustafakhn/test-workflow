@@ -4,7 +4,7 @@ name: CI
 
 # Controls when the workflow will run
 env:
-    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GH_TOKEN: ${{ github.token }}
 
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
@@ -25,6 +25,7 @@ jobs:
           path: ./.github/actions/private-action
     - name: Run a multi-line script
       run: |
+          .github/actions/private-action/jira-verifier.sh $(gh pr view --json title | cut -d ' ' -f 1 | sed 's/{"title":"//')
           gh pr view --json title | grep -P "title" | cut -d ' ' -f 1 | sed 's/{"title":"//'
     - run: gh pr view --json title | cut -d ' ' -f 1 | sed 's/{"title":"//'
     - uses: ./.github/actions/private-action
