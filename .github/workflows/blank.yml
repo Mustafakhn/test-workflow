@@ -25,4 +25,5 @@ jobs:
           path: ./.github/actions/
     - run: | 
           ls -lrt ./.github/actions
+          pwd
     - uses: ./.github/actions/
