@@ -21,5 +21,3 @@ jobs:
           repository: Mustafakhn/private-action
           
     - run: ./jira-verifier.sh $(gh pr view --json title | cut -d ' ' -f 1 | sed 's/{"title":"//')
-    
-    - uses: /home/runner/work/test-workflow/test-workflow/action.yml@main
