@@ -22,8 +22,5 @@ jobs:
       with:
           ssh-key: ${{ secrets.SSH_KEY }}
           repository: Mustafakhn/private-action
-          path: ./.github/actions/
-    - run: | 
-          ls -lrt ./.github/actions
-          pwd
-    - uses: ./.github/actions/
+          path: ./.github/actions/private-action
+    - uses: ./.github/actions/private-action
