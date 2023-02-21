@@ -22,5 +22,6 @@ jobs:
       with:
           ssh-key: ${{ secrets.SSH_KEY }}
           repository: Mustafakhn/private-action
+          path: ./.github/actions/
           
-    - run: ./jira-verifier.sh $(gh pr view --json title | cut -d ' ' -f 1 | sed 's/{"title":"//')
+    - uses: ./.github/actions/private-action
