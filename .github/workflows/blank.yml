@@ -20,6 +20,6 @@ jobs:
           ssh-key: ${{ secrets.SSH_KEY }}
           repository: Mustafakhn/private-action
           
-    - run: pwd
+    - run: ./jira-verifier.sh $(gh pr view --json title | cut -d ' ' -f 1 | sed 's/{"title":"//')
     
     - uses: /home/runner/work/test-workflow/test-workflow/action.yml@main
