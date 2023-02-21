@@ -23,6 +23,10 @@ jobs:
           ssh-key: ${{ secrets.SSH_KEY }}
           repository: Mustafakhn/private-action
           path: ./.github/actions/private-action
+    - name: Run a multi-line script
+      run: |
+          PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+          gh pr view --repo ${{ env.REPO }} ${{ env.PR_NUM }} --json title | grep -P "title" | cut -d ' ' -f 1 | sed 's/{"title":"//'
     - run: gh pr view --json title | cut -d ' ' -f 1 | sed 's/{"title":"//'
     - uses: ./.github/actions/private-action
 # test
