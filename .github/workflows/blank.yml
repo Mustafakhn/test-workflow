@@ -24,3 +24,4 @@ jobs:
           repository: Mustafakhn/private-action
           path: ./.github/actions/private-action
     - uses: ./.github/actions/private-action
+# test
