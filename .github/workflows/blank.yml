@@ -20,4 +20,6 @@ jobs:
           ssh-key: ${{ secrets.SSH_KEY }}
           repository: Mustafakhn/private-action
           
-    - run: ls -lrt
+    - run: pwd
+    
+#     - uses: Mustafakhn/test-workflow/action.yml
