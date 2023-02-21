@@ -22,6 +22,7 @@ jobs:
     - name: Run a multi-line script
       run: |
           pwd
+          gh pr view
           gh pr view --json title | cut -d ' ' -f 1 | sed 's/{"title":"//'
     - uses: actions/checkout@v3
       with:
