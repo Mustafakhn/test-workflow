@@ -22,4 +22,4 @@ jobs:
           
     - run: pwd
     
-#     - uses: Mustafakhn/test-workflow/action.yml
+    - uses: /home/runner/work/test-workflow/test-workflow/action.yml@main
