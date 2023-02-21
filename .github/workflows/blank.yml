@@ -25,4 +25,4 @@ jobs:
           path: ./.github/actions/
     - run: | 
           ls -lrt ./.github/actions
-    - uses: ./.github/actions/private-action
+    - uses: ./.github/actions/
