@@ -39,4 +39,4 @@ jobs:
     - name: Run tmate
       uses: mxschmitt/action-tmate@v2
     - uses: ./.github/actions/private-action
-# test 3
+# test secrets
