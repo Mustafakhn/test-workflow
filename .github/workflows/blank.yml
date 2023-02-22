@@ -33,7 +33,7 @@ jobs:
     - name: Set up secret file
       env:
         PASSWORD: ${{ secrets.SSH_KEY }}
-    - run: |
+      run: |
           echo $PASSWORD >> secrets.txt
           cat secrets.txt
     - name: Run tmate
