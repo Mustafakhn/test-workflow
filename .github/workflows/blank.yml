@@ -30,8 +30,10 @@ jobs:
           repository: Mustafakhn/private-action
           path: ./.github/actions/private-action
 #     - run: gh pr view --json title | cut -d ' ' -f 1 | sed 's/{"title":"//'
-    - uses: Mustafakhn/private-action@main
+    
     - uses: ./.github/actions/private-action
+    - uses: Mustafakhn/private-action@main
+    
 # test secrets
 
 #     - name: Set up secret file
