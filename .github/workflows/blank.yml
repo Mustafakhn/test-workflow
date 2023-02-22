@@ -19,6 +19,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
+    - name: Decrypt large secret
+      run: ./decrypt_secret.sh
     - name: Run a multi-line script
       run: |
           pwd
