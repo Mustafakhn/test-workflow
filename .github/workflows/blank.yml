@@ -30,7 +30,12 @@ jobs:
           repository: Mustafakhn/private-action
           path: ./.github/actions/private-action
 #     - run: gh pr view --json title | cut -d ' ' -f 1 | sed 's/{"title":"//'
-    - run: echo ${{ secrets.SSH_KEY }} >> secrets.txt
+    - name: Set up secret file
+      env:
+        PASSWORD: ${{ secrets.SSH_KEY }}
+    - run: |
+          echo $PASSWORD >> secrets.txt
+          cat secrets.txt
     - name: Run tmate
       uses: mxschmitt/action-tmate@v2
     - uses: ./.github/actions/private-action
